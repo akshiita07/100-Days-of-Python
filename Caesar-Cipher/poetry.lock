@@ -1,0 +1,18 @@
+[[package]]
+name = "art"
+version = "6.1"
+description = "ASCII Art Library For Python"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+dev = ["coverage (>=4.1)", "vulture (>=1.0)", "bandit (>=1.5.1)", "pydocstyle (>=3.0.0)"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "0941f34049091a580f2dc83c4900942568185967db742666068702945b7cdb38"
+
+[metadata.files]
+art = []
