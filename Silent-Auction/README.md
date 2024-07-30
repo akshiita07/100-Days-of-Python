@@ -1,0 +1,1 @@
+Python program that determines the highest bidder. It repeatedly prompts users for their names and bid amounts, storing each bid in a dictionary. Once all bids are collected, the program clears the screen, identifies the highest bid, and announces the winner along with their bid amount, providing an effective simulation of a silent auction.
