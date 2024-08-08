@@ -6,6 +6,7 @@
 
 import random;
 import os;
+from art import logo
 
 endGame=False
 
@@ -42,6 +43,7 @@ def checkCard(userCardsSum,compCardsSum):
             print("You have a closer value to 21. You win 😁")
 
 def playBlackjack():
+    print(logo)
     cards=[11,2,3,4,5,6,7,8,9,10,10,10,10]  #13 total cards A-K
     play=True
     while play==True:
