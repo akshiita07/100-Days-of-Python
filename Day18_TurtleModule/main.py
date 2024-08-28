@@ -21,9 +21,11 @@ timmy_turtle.color("hot pink")
 # to draw a aquare using turtle:
 def drawSquare():
     for _ in range(4):
-        timmy_turtle.forward(50)
-        timmy_turtle.right(90)
-# drawSquare()
+        timmy_turtle.forward(25)
+        timmy_turtle.left(90)
+        timmy_turtle.forward(25)
+timmy_turtle.color("blue")
+drawSquare()
 
 
 def dashedLine():
@@ -34,44 +36,73 @@ def dashedLine():
         timmy_turtle.forward(10)
 # dashedLine()
 
+# move 360/noOfSides for different shapes
 def drawTriangle():
-    timmy_turtle.forward(100)
-    timmy_turtle.left(135)
-    timmy_turtle.forward(80)
-    timmy_turtle.left(97)
-    timmy_turtle.forward(80)
-
+    # 360/3=120
+    for _ in range(3):
+        timmy_turtle.forward(50)
+        timmy_turtle.left(120)
+        timmy_turtle.forward(50)
+timmy_turtle.color("forest green")
 drawTriangle()
 
 def drawPenatgon():
-    pass
-
-# drawPenatgon()
+    # 360/5=72
+    for _ in range(5):
+        timmy_turtle.forward(50)
+        timmy_turtle.left(72)
+        timmy_turtle.forward(50)
+timmy_turtle.color("deep pink")
+drawPenatgon()
 
 def drawHexagon():
-    pass
-
-# drawHexagon()
+    # 360/6=60
+    for _ in range(6):
+        timmy_turtle.forward(50)
+        timmy_turtle.left(60)
+        timmy_turtle.forward(50)
+timmy_turtle.color("light green")
+drawHexagon()
 
 def drawHeptagon():
-    pass
-
-# drawHeptagon()
+    # 360/7=51.4
+    for _ in range(7):
+        timmy_turtle.forward(50)
+        timmy_turtle.left(51.4)
+        timmy_turtle.forward(50)
+    
+timmy_turtle.color("red")
+drawHeptagon()
 
 def drawOctagon():
-    pass
+    # 360/8=45
+    for _ in range(8):
+        timmy_turtle.forward(50)
+        timmy_turtle.left(45)
+        timmy_turtle.forward(50)
 
-# drawOctagon()
+timmy_turtle.color("sky blue")
+drawOctagon()
 
 def drawNonagon():
-    pass
-
-# drawNonagon()
+    # 360/9=40
+    for _ in range(9):
+        timmy_turtle.forward(50)
+        timmy_turtle.left(40)
+        timmy_turtle.forward(50)
+    
+timmy_turtle.color("saddle brown")
+drawNonagon()
 
 def drawDecagon():
-    pass
-
-# drawDecagon()
+    # 360/10=36
+    for _ in range(10):
+        timmy_turtle.forward(50)
+        timmy_turtle.left(36)
+        timmy_turtle.forward(50)
+    
+timmy_turtle.color("cornflower blue")
+drawDecagon()
 
 
 
