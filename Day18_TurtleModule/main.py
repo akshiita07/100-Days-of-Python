@@ -21,9 +21,8 @@ timmy_turtle.color("hot pink")
 # to draw a aquare using turtle:
 def drawSquare():
     for _ in range(4):
-        timmy_turtle.forward(25)
+        timmy_turtle.forward(50)
         timmy_turtle.left(90)
-        timmy_turtle.forward(25)
 timmy_turtle.color("blue")
 drawSquare()
 
@@ -42,7 +41,6 @@ def drawTriangle():
     for _ in range(3):
         timmy_turtle.forward(50)
         timmy_turtle.left(120)
-        timmy_turtle.forward(50)
 timmy_turtle.color("forest green")
 drawTriangle()
 
@@ -51,7 +49,6 @@ def drawPenatgon():
     for _ in range(5):
         timmy_turtle.forward(50)
         timmy_turtle.left(72)
-        timmy_turtle.forward(50)
 timmy_turtle.color("deep pink")
 drawPenatgon()
 
@@ -60,7 +57,6 @@ def drawHexagon():
     for _ in range(6):
         timmy_turtle.forward(50)
         timmy_turtle.left(60)
-        timmy_turtle.forward(50)
 timmy_turtle.color("light green")
 drawHexagon()
 
@@ -69,7 +65,6 @@ def drawHeptagon():
     for _ in range(7):
         timmy_turtle.forward(50)
         timmy_turtle.left(51.4)
-        timmy_turtle.forward(50)
     
 timmy_turtle.color("red")
 drawHeptagon()
@@ -79,7 +74,6 @@ def drawOctagon():
     for _ in range(8):
         timmy_turtle.forward(50)
         timmy_turtle.left(45)
-        timmy_turtle.forward(50)
 
 timmy_turtle.color("sky blue")
 drawOctagon()
@@ -89,7 +83,6 @@ def drawNonagon():
     for _ in range(9):
         timmy_turtle.forward(50)
         timmy_turtle.left(40)
-        timmy_turtle.forward(50)
     
 timmy_turtle.color("saddle brown")
 drawNonagon()
@@ -99,7 +92,6 @@ def drawDecagon():
     for _ in range(10):
         timmy_turtle.forward(50)
         timmy_turtle.left(36)
-        timmy_turtle.forward(50)
     
 timmy_turtle.color("cornflower blue")
 drawDecagon()
