@@ -14,9 +14,7 @@ class Paddle(Turtle):
     def up(self):
         # up by 20px
         self.goto(self.xcor(),self.ycor()+30)
-        pass
         
     def down(self):
         # down by 20px
         self.goto(self.xcor(),self.ycor()-30)
-        pass
