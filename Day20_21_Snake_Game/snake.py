@@ -1,5 +1,5 @@
 ﻿from turtle import Turtle,Screen
-X_COORD=[0,-20,-40]      #as a constant
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]      #as a constant
 MOVE_SPEED=20
 
 class Snake:
@@ -9,21 +9,32 @@ class Snake:
         # each turtle is of 20x20pixels & first one is at (x=0,y=0)
         # y coord will stay same but x coordinate will differ
         self.segments=[]        #attribute of class so use self
-        colors=['white','pink','yellow']
         # all squares in a list
-
-        for sq in range(0,3):
-            snakeBody=Turtle()
-            # snakeBody.color('white')
-            snakeBody.color(colors[sq])
-            snakeBody.penup()       #do not draw anything
-            snakeBody.shape('square')
-            snakeBody.goto(x=X_COORD[sq],y=0)
-            self.segments.append(snakeBody)  
+        # head of snake:
+        self.createSnake()
+        self.head=self.segments[0]
+        
+    def createSnake(self):
+        for position in STARTING_POSITIONS:
+            self.addSegment(position)
             
+    # TO ADD SEGMENTS TO SNAKE:
+    def addSegment(self,position):
+        snakeBody=Turtle()
+        # snakeBody.color('white')
+        snakeBody.color("pink")
+        snakeBody.penup()       #do not draw anything
+        snakeBody.shape('square')
+        snakeBody.goto(position)
+        self.segments.append(snakeBody)  
+        
+    # TO EXTEND SNAKE WHEN IT EATS FOOD:
+    def extend(self):
+        self.addSegment(self.segments[-1].position())
+    
     def move(self):
         # loop thru all segments from LAST to FIRST
-        for i in range(len(self.segments)-1,0,-1):
+        for i in range((len(self.segments)-1),0,-1):
             # ie range(start=2,stop=0,step=-1):
             # for turning of snake: move segment 3 to segment 2 && move segmet 2 to segment 1 && move segment1 along given dirn
             newX=self.segments[i-1].xcor()     #change second last segment
