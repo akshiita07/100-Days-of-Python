@@ -65,3 +65,11 @@ class Snake:
         # if head is not left then move right
         if self.segments[0].heading()!=180:
             self.segments[0].setheading(0)
+
+    def removeSnake(self):
+        for segm in self.segments:
+            segm.goto(1000,1000)        #cannot be seen on screen now
+        self.segments.clear()
+        # initilaise snake again:
+        self.createSnake()
+        self.head=self.segments[0]

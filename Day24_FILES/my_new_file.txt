@@ -1,0 +1,1 @@
+This new file created in write mode when file did not pre-exist

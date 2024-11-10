@@ -55,7 +55,9 @@ while gameIsOn:
 
     # DETECT COLLISIONS WITH WALL
     if snake.head.xcor()>285 or snake.head.xcor()<-285 or snake.head.ycor()>285 or snake.head.ycor()<-285:
-        gameIsOn=False
+        # gameIsOn=False
+        scoreBoard.resetScore()
+        snake.removeSnake()
     
     # DETECT COLLISIONS WITH ITS OWN TAIL
     for segment in snake.segments[1:]:
@@ -64,13 +66,15 @@ while gameIsOn:
         #     pass      
         # OR USE SLICING : [1:]
         if snake.head.distance(segment)<10:
-            gameIsOn=False
+            # gameIsOn=False
+            scoreBoard.resetScore()
+            snake.removeSnake()
 
 
 # import from gameOver library that we have created:
-from gameOver import GameOver    
-gameOver=GameOver()
-if gameIsOn==False:
-    gameOver.giveMessage()
+# from gameOver import GameOver    
+# gameOver=GameOver()
+# if gameIsOn==False:
+    # gameOver.giveMessage()
     
 screen.exitonclick()
