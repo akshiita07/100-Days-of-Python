@@ -28,10 +28,14 @@ while len(user_guessed_states)<50:
     user_input=user_input.title()
     
     if user_input=="Exit":
+        '''
         missing_states=[]
         for state in states_list:
             if state not in user_guessed_states:
                 missing_states.append(state)
+        '''
+        # or using list comprehension:
+        missing_states=[state for state in states_list if state not in user_guessed_states]
         print(missing_states)
         # if user typed exit then generate csv file for him to learn remaining states:
         new_data=pandas.DataFrame(missing_states)
