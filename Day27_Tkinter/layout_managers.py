@@ -20,7 +20,7 @@ my_btn.pack()
 # my_btn.place(x=100,y=0)       #at top left
 my_btn.place(x=100,y=200)       #at top left
 
-# 3. GRID: image entire program is grid & divide it into any no of rows - and columns | 
+# 3. GRID: imagine entire program is grid & divide it into any no of rows - and columns | 
 myLabel.grid(column=0,row=0)       #at top left
 
 # ADDING PADDING AROUND COMPONENTS:
