@@ -12,11 +12,11 @@ my_email="apathak1_be22@thapar.edu"
 password=os.getenv("EMAIL_PASSWORD")
 print(f"Password fetched by env is: {password}")
 
+MY_LATITUDE=30.733315
+MY_LONGITUDE=76.779419
+
 def iss_is_overhead():
     # getting sunrise & sunset:
-    MY_LATITUDE=30.733315
-    MY_LONGITUDE=76.779419
-
     # get iss longitude & latitude:
     response=requests.get(url="http://api.open-notify.org/iss-now.json") 
     data=response.json()
@@ -66,7 +66,7 @@ while True:
     # to execute this code every 60 seconds:
     time.sleep(60)
     # check if it is currently dark & iss is at my location with a buffer of 5:
-    if iss_is_overhead() and is_night_time:
+    if iss_is_overhead() and is_night_time():
         # send me email to look up
         with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()       #for secure
