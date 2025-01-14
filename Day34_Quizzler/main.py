@@ -22,12 +22,12 @@ for ques in question_data:
 
 # keep on showing questions until they get over
 quiz=QuizBrain(question_bank)
-quiz_ui=QuizInterface()
+quiz_ui=QuizInterface(quiz)     #pass the quiz as a parameter
 
 # while quiz.questionsAreLeft():
 #     quiz.giveNewQues()
 
 #after all ques r completed then show final score
-print(f"The quiz is completed🚀! Your final score is: {quiz.score}/{quiz.qNo}")
+# print(f"The quiz is completed🚀! Your final score is: {quiz.score}/{quiz.qNo}")
 
 

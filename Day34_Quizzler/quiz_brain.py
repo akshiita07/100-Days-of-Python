@@ -19,7 +19,8 @@ class QuizBrain:
             return False
     
     
-    def checkAnswer(self,userAnswer,correctAnswer):
+    def checkAnswer(self,userAnswer):
+        correctAnswer=self.currentQuestion.answer
         # if user writes short forms
         if userAnswer.lower()=="t":
             userAnswer="true"
@@ -27,27 +28,27 @@ class QuizBrain:
             userAnswer="false"
         #in any casing
         if userAnswer.lower()==correctAnswer.lower():
-            print("Correct Answer 😊")
+            # print("Correct Answer 😊")
             self.score+=1
+            return True
         else:
-            print("Wrong Answer 😭")
-            print(f"The correct answer is: {correctAnswer}")
+            # print("Wrong Answer 😭")
+            # print(f"The correct answer is: {correctAnswer}")
+            return False
         #also show score to user
-        print(f"Your current score is: {self.score}/{self.qNo}")
-        print()     #just for a new line
+        # print(f"Your current score is: {self.score}/{self.qNo}")
+        # print()     #just for a new line
     
     def giveNewQues(self):
         #provide a new q
-        currentQuestion=self.qlist[self.qNo]
-        actualAnswer=currentQuestion.answer
+        self.currentQuestion=self.qlist[self.qNo]
+        actualAnswer=self.currentQuestion.answer
         # start qno from 1 so (+1)
         self.qNo+=1
         # data is printed along with html entities so unescape them:
-        q_text=html.unescape(currentQuestion.text  )
-        userInput=input(f"Q.{self.qNo}: {q_text} (True/False)?: ")
-        self.checkAnswer(userInput,actualAnswer)
-    
-            
-        
-        
+        q_text=html.unescape(self.currentQuestion.text  )
+        # userInput=input(f"Q.{self.qNo}: {q_text} (True/False)?: ")
+        # self.checkAnswer(userInput,actualAnswer)
+        return f"Q.{self.qNo}: {q_text}"
+              
 # obj1=QuizBrain(question_bank) #pass this qbank as list of questions
