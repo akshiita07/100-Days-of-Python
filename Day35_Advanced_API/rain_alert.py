@@ -10,15 +10,15 @@ load_dotenv("Day35_Advanced_API/.env")
 # print(f"Env File Found: {find_dotenv()}")
 
 # from twilio:
-account_sid = "AC86fbb06ed69d29333cc2a60963c02993"
+account_sid = os.getenv("ACC_SID")
 auth_token = os.getenv("AUTH_TOKEN")
 
 # https://home.openweathermap.org/api_keys
 apiKey=os.getenv("API_KEY")
 
-print(f"API_KEY: {apiKey}")
-print(f"AUTH_TOKEN: {auth_token}")
-
+# print(f"API_KEY: {apiKey}")
+# print(f"AUTH_TOKEN: {auth_token}")
+# print(f"AUTH_SID: {account_sid}")
 
 MY_LATITUDE=30.339781
 MY_LONGITUDE=76.386879
