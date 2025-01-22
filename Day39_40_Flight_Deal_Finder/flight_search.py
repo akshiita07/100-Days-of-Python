@@ -38,7 +38,7 @@ class FlightSearch:
         response=requests.get(url="https://test.api.amadeus.com/v1/reference-data/locations/cities",params=parameters,headers=header)
         
         try:
-            code=response.json()["included"]["airports"][0]["iataCode"]
+            code=response.json()["data"][0]["iataCode"]
         except IndexError:
             print(f"IndexError: No airport code found for {city_name}.")
             return "N/A"
@@ -46,3 +46,29 @@ class FlightSearch:
             print(f"KeyError: No airport code found for {city_name}.")
             return "Not Found"
         return code
+    
+    def check_flights(self,origin_airport,dest_airport,depart_date,return_date):
+        
+        header = {
+            "Authorization": f"Bearer {self.access_token}"
+        }
+        parameters={
+            "originLocationCode":origin_airport,
+            "destinationLocationCode":dest_airport,
+            "departureDate":depart_date.strftime("%Y-%m-%d"),   #tommorrow & 6months (6*30=180 days time) YYYY-MM-DD format
+            "returnDate":return_date.strftime("%Y-%m-%d"),
+            "adults":1,
+            "nonStop":"true",
+            "max":10,
+            "currencyCode":"INR",
+        }
+
+        response=requests.get(url="test.api.amadeus.com/v2/shopping/flight-offers",params=parameters,headers=header)
+
+        response.raise_for_status()
+        print(f"Search flight price status code: {response.status_code()}")
+        print(f"Search flight price: {response.json()}")
+        
+        # error handling when response code is not 200:
+        
+        return response.json()

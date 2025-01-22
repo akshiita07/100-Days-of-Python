@@ -17,6 +17,7 @@ class DataManager:
     def getData(self):
         response=requests.get(url="https://api.sheety.co/6e94b3d5304ddf6d53ea8022eb513017/flightDealsPythonDay39/prices",headers=self.sheety_header)
         data=response.json()
+        print(f"data from sheety: {data}")
         self.dest_sheet_data=data["prices"]
         return self.dest_sheet_data
     
