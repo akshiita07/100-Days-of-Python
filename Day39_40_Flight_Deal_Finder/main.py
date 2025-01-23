@@ -32,6 +32,12 @@ data_manager=DataManager()
 sheet_data=data_manager.getData()
 # pprint(sheet_data)
 
+# user emails:
+user_emails=data_manager.get_customer_emails()
+pprint(user_emails)
+
+customer_emails=[row["email"] for row in user_emails]
+
 # Check if IATA code corresponding is not filled then fill it:
 for row in sheet_data:
     search_flight=FlightData()
@@ -62,10 +68,24 @@ for dest in sheet_data:
     
     print(f"{dest['city']} : ₹{cheapestFlight.price}")
 
+    if cheapestFlight.price=="N/A":
+        print(f"No direct flights found for {dest['city']}. Looking for indirect flights")
+        
+        flights=flight_search.check_flights("LON",dest["iataCode"],tmrw,after6Months,False)
+        
+        cheapestFlight=flight_data.find_cheapest_flight(flights)
+        print(f"Cheapest indirect flight {dest['city']} : ₹{cheapestFlight.price}")
+        
     if cheapestFlight.price!="N/A" and cheapestFlight.price<dest["lowestPrice"]:
-        print(f"A cheaper flight is found for {dest['city']}")
+        
+        if cheapestFlight.no_of_stops==0:
+            message=f"Low Price Alert!\nOnly ₹{cheapestFlight.price} to fly DIRECTLY from {cheapestFlight.origin_airport} to {cheapestFlight.dest_airport}, on {cheapestFlight.depart_date} until {cheapestFlight.return_date}\n"
+        else:
+            message=f"Low Price Alert!\nOnly ₹{cheapestFlight.price} to fly DIRECTLY from {cheapestFlight.origin_airport} to {cheapestFlight.dest_airport}, with {cheapestFlight.no_of_stops} stop(s), on {cheapestFlight.depart_date} until {cheapestFlight.return_date}\n"
+        
         notif_manager=NotificationManager()
-        notif_manager.send_whatsapp(f"Low Price Alert!\nOnly ₹{cheapestFlight.price} to fly from {cheapestFlight.origin_airport} to {cheapestFlight.dest_airport}, on {cheapestFlight.depart_date} until {cheapestFlight.return_date}\n")
+        notif_manager.send_whatsapp(message)
+        notif_manager.send_email(user_emails,message)
         
 
 

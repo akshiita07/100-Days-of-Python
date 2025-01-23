@@ -13,6 +13,7 @@ class DataManager:
             "Authorization": f"Bearer {sheety_bearer_token}" 
         }
         self.dest_sheet_data={}
+        self.customer_data={}
         
     def getData(self):
         response=requests.get(url="https://api.sheety.co/6e94b3d5304ddf6d53ea8022eb513017/flightDealsPythonDay39/prices",headers=self.sheety_header)
@@ -31,4 +32,9 @@ class DataManager:
             }
             response=requests.put(url=f"https://api.sheety.co/6e94b3d5304ddf6d53ea8022eb513017/flightDealsPythonDay39/prices/{city['id']}",json=new_data,headers=self.sheety_header)
             print(response.text)
+            
+    def get_customer_emails(self):
+        response=requests.get(url="https://api.sheety.co/6e94b3d5304ddf6d53ea8022eb513017/flightDealsPythonDay39/users")
+        self.customer_data=response.json()["users"]
+        return self.customer_data
         

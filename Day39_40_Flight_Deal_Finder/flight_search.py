@@ -47,7 +47,7 @@ class FlightSearch:
             return "Not Found"
         return code
     
-    def check_flights(self,origin_airport,dest_airport,depart_date,return_date):
+    def check_flights(self,origin_airport,dest_airport,depart_date,return_date,is_direct=True):
         
         header = {
             "Authorization": f"Bearer {self.access_token}"
@@ -58,7 +58,7 @@ class FlightSearch:
             "departureDate":depart_date.strftime("%Y-%m-%d"),   #tommorrow & 6months (6*30=180 days time) YYYY-MM-DD format
             "returnDate":return_date.strftime("%Y-%m-%d"),
             "adults":1,
-            "nonStop":"true",
+            "nonStop":True if is_direct else False,
             "max":10,
             "currencyCode":"INR",
         }
