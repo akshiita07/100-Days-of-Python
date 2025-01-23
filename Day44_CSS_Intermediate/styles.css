@@ -1,0 +1,40 @@
+﻿* {
+    background-color: blanchedalmond;
+    margin: 0px 0px;
+}
+
+h1 {
+    background-color: greenyellow;
+    font-size: 100px;
+    font-weight: bolder;
+    font-family: "Playwrite IN", serif;
+    color: blue;
+}
+
+h2 {
+    background-color: blue;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.box1 {
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    padding: 20px 20px;
+    background-color: green;
+}
+
+.box2 {
+    height: 200px;
+    width: 200px;
+    border: solid black;
+    border-width: 20px 10px 20px 10px;
+    background-color: yellow;
+    margin: 0px 260px;
+}
+
+.box3 {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
