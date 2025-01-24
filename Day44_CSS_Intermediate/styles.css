@@ -1,5 +1,9 @@
 ﻿* {
-    background-color: blanchedalmond;
+    background-color: black;
+}
+
+/* 
+p {
     margin: 0px 0px;
 }
 
@@ -37,4 +41,35 @@ h2 {
     height: 200px;
     width: 200px;
     background-color: red;
+    border: 10px solid black;
+    margin: 0px 40px;
+} */
+
+.cntr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageCntr {
+    border: 5px solid white;
+    width: 200px;
+    height: 200px;
+}
+
+img {
+    width: 100%
+}
+
+h1,
+p {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    color: pink;
+    text-transform: capitalize;
+    font-family: "Playwrite IN", serif;
 }
