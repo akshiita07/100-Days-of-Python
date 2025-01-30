@@ -61,12 +61,12 @@ print(f"AFter password i am at: {driver.title}")
 
 # continue:
 try:
-    driver.find_element(By.CSS_SELECTOR,"//*[@id^='mount_']//div[contains(@class, 'x9f619')][3]//div[contains(@class, 'x1n2onr6')]").click()
+    driver.find_element(By.XPATH,'//*[@id="mount_0_0_jE"]/div/div/div/div/div/div/div[1]/div[3]/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div/div/div[1]').click()
 except NoSuchElementException:
     print("Could not find that continue btn")
     print(f"Still at: {driver.title}")
     time.sleep(5)
-    driver.find_element(By.CSS_SELECTOR,"//*[@id^='mount_']//div[contains(@class, 'x9f619')][3]//div[contains(@class, 'x1n2onr6')]").click()
+    driver.find_element(By.XPATH,'//*[@id="mount_0_0_jE"]/div/div/div/div/div/div/div[1]/div[3]/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div/div/div[1]').click()
 
 time.sleep(5)
 driver.switch_to.window(base_window)
