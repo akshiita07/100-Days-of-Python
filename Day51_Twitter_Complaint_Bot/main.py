@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 load_dotenv("Day51_Twitter_Complaint_Bot/.env")
 username_twitter=os.getenv("USERNAMETWITTER")
 password=os.getenv("PASSWORD")
+email=os.getenv("EMAIL")
 print(f"Username fetched from env: {username_twitter}")
 
 # KEEP BROWSER OPEN:
@@ -69,11 +70,23 @@ driver.find_element(By.NAME,"text").send_keys(username_twitter)
 driver.find_element(By.NAME,"text").send_keys(Keys.ENTER)
 time.sleep(3)
 
-# password
-driver.find_element(By.NAME,"password").click()
-driver.find_element(By.NAME,"password").send_keys(password)
-driver.find_element(By.NAME,"password").send_keys(Keys.ENTER)
-time.sleep(5)
+try:
+    # if email asked:
+    driver.find_element(By.NAME,"text").click()
+    driver.find_element(By.NAME,"text").send_keys(email)
+    driver.find_element(By.NAME,"text").send_keys(Keys.ENTER)
+    time.sleep(3)
+    # password
+    driver.find_element(By.NAME,"password").click()
+    driver.find_element(By.NAME,"password").send_keys(password)
+    driver.find_element(By.NAME,"password").send_keys(Keys.ENTER)
+    time.sleep(5)
+except NoSuchElementException:
+    # password
+    driver.find_element(By.NAME,"password").click()
+    driver.find_element(By.NAME,"password").send_keys(password)
+    driver.find_element(By.NAME,"password").send_keys(Keys.ENTER)
+    time.sleep(5)
 
 # write tweet:
 driver.find_element(By.XPATH,'//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div[1]/div/div[3]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/div/div/div[1]/div/div/div/div/div/div[2]/div/div/div/div').click()
