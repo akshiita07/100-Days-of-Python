@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="top">
+            <div class="title">
+                <h1>My Blog</h1>
+            </div>
+        </div>
+
+        {% for post in allPosts: %}
+        <div class="content">
+            <div class="card">
+                <h2>{{post["title"]}}</h2>
+                <p class="text">{{post["subtitle"]}}</p>
+                <a href="{{ url_for('getPost',postId=post['id']) }}">Read</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</body>
+<footer>
+    <p>© Copyright {{year}}. Created by Akshita Pathak.</p>
+</footer>
+</body>
+
+</html>
