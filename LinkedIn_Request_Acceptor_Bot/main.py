@@ -39,7 +39,7 @@ email_input.send_keys(linkedin_email,Keys.TAB)
 password_input=driver.find_element(By.NAME,"session_password")
 password_input.send_keys(linkedin_password,Keys.ENTER)
 
-time.sleep(5)       #loading time
+time.sleep(25)       #loading time
 
 # Accept:
 acceptButtons = driver.find_elements(By.CLASS_NAME,"artdeco-button--secondary")
